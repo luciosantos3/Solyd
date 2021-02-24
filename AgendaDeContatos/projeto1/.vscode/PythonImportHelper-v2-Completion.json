@@ -1,0 +1,200 @@
+[
+    {
+        "label": "mostrar_contatos",
+        "kind": 2,
+        "importPath": "agenda",
+        "description": "agenda",
+        "peekOfCode": "def mostrar_contatos():\n    if AGENDA:\n        for contato in AGENDA:\n            buscar_contato(contato)\n    else:\n        print('>>>> Angenda vazia')\ndef buscar_contato(contato):\n    try:\n        print('Nome:', contato)\n        print('Telefone:', AGENDA[contato]['telefone'])",
+        "detail": "agenda",
+        "documentation": {}
+    },
+    {
+        "label": "buscar_contato",
+        "kind": 2,
+        "importPath": "agenda",
+        "description": "agenda",
+        "peekOfCode": "def buscar_contato(contato):\n    try:\n        print('Nome:', contato)\n        print('Telefone:', AGENDA[contato]['telefone'])\n        print('Email:', AGENDA[contato]['email'])\n        print('Endereço:', AGENDA[contato]['endereco'])\n        print('--------------------------------------------')\n    except KeyError:\n        print('>>>> Contato inexistente')\n    except Exception as error:",
+        "detail": "agenda",
+        "documentation": {}
+    },
+    {
+        "label": "ler_detalhes_contato",
+        "kind": 2,
+        "importPath": "agenda",
+        "description": "agenda",
+        "peekOfCode": "def ler_detalhes_contato():\n    telefone = input('Digite o nome do telefone: ')\n    email = input('Digite o nome do email: ')\n    endereco = input('Digite o nome do endereco: ')\n    return telefone, email, endereco\ndef incluir_editar_contato(contato, telefone, email, endereco):\n    AGENDA[contato] = {\n        'telefone': telefone,\n        'email': email,\n        'endereco': endereco,",
+        "detail": "agenda",
+        "documentation": {}
+    },
+    {
+        "label": "incluir_editar_contato",
+        "kind": 2,
+        "importPath": "agenda",
+        "description": "agenda",
+        "peekOfCode": "def incluir_editar_contato(contato, telefone, email, endereco):\n    AGENDA[contato] = {\n        'telefone': telefone,\n        'email': email,\n        'endereco': endereco,\n    }\n    salvar()\n    print()\n    print('>>>> Contato {} adicionado/editado com sucesso'.format(contato))\n    print()",
+        "detail": "agenda",
+        "documentation": {}
+    },
+    {
+        "label": "excluir_contato",
+        "kind": 2,
+        "importPath": "agenda",
+        "description": "agenda",
+        "peekOfCode": "def excluir_contato(contato):\n    try:\n        AGENDA.pop(contato)\n        salvar()\n        print()\n        print('>>>> Contato {} excluido com sucesso'.format(contato))\n        print()\n    except KeyError:\n        print('>>>> Contato inexistente')\n    except Exception as error:",
+        "detail": "agenda",
+        "documentation": {}
+    },
+    {
+        "label": "exportar_contatos",
+        "kind": 2,
+        "importPath": "agenda",
+        "description": "agenda",
+        "peekOfCode": "def exportar_contatos(nome_do_arquivo):\n    try:\n        with open(nome_do_arquivo, 'w') as arquivo:\n            for contato in AGENDA:\n                telefone = AGENDA[contato]['telefone']\n                email = AGENDA[contato]['email']\n                endereco = AGENDA[contato]['endereco']\n                arquivo.write(\"{},{},{},{}\\n\".format(contato, telefone, email, endereco))\n        print('>>>> Agenda exportada com sucesso')\n    except Exception as error:",
+        "detail": "agenda",
+        "documentation": {}
+    },
+    {
+        "label": "importar_contatos",
+        "kind": 2,
+        "importPath": "agenda",
+        "description": "agenda",
+        "peekOfCode": "def importar_contatos(nome_do_arquivo):\n    try:\n        with open(nome_do_arquivo, 'r') as arquivo:\n            linhas = arquivo.readlines()\n            for linha in linhas:\n                detalhes = linha.strip().split(',')\n                nome = detalhes[0]\n                telefone = detalhes[1]\n                email = detalhes[2]\n                endereco = detalhes[3]",
+        "detail": "agenda",
+        "documentation": {}
+    },
+    {
+        "label": "salvar",
+        "kind": 2,
+        "importPath": "agenda",
+        "description": "agenda",
+        "peekOfCode": "def salvar():\n    exportar_contatos('database.csv')\ndef carregar():\n    try:\n        with open('database.csv', 'r') as arquivo:\n            linhas = arquivo.readlines()\n            for linha in linhas:\n                detalhes = linha.strip().split(',')\n                nome = detalhes[0]\n                telefone = detalhes[1]",
+        "detail": "agenda",
+        "documentation": {}
+    },
+    {
+        "label": "carregar",
+        "kind": 2,
+        "importPath": "agenda",
+        "description": "agenda",
+        "peekOfCode": "def carregar():\n    try:\n        with open('database.csv', 'r') as arquivo:\n            linhas = arquivo.readlines()\n            for linha in linhas:\n                detalhes = linha.strip().split(',')\n                nome = detalhes[0]\n                telefone = detalhes[1]\n                email = detalhes[2]\n                endereco = detalhes[3]",
+        "detail": "agenda",
+        "documentation": {}
+    },
+    {
+        "label": "imprimir_menu",
+        "kind": 2,
+        "importPath": "agenda",
+        "description": "agenda",
+        "peekOfCode": "def imprimir_menu():\n    print('------------------------------------------')\n    print('1 - Mostrar todos os contatos da agenda')\n    print('2 - Buscar contato')\n    print('3 - Incluir contato')\n    print('4 - Editar contato')\n    print('5 - Excluir contato')\n    print('6 - Exportar contatos para CSV')\n    print('7 - Importar contatos CSV')\n    print('0 - Fechar agenda')",
+        "detail": "agenda",
+        "documentation": {}
+    },
+    {
+        "label": "AGENDA",
+        "kind": 5,
+        "importPath": "agenda",
+        "description": "agenda",
+        "peekOfCode": "AGENDA = {}\ndef mostrar_contatos():\n    if AGENDA:\n        for contato in AGENDA:\n            buscar_contato(contato)\n    else:\n        print('>>>> Angenda vazia')\ndef buscar_contato(contato):\n    try:\n        print('Nome:', contato)",
+        "detail": "agenda",
+        "documentation": {}
+    },
+    {
+        "label": "AGENDA",
+        "kind": 5,
+        "importPath": "agenda_na_mao",
+        "description": "agenda_na_mao",
+        "peekOfCode": "AGENDA = {\n    \"guilherme\": {\n        \"tel\": \"99999-1010\",\n        \"email\": \"contato@solyd.com.br\",\n        \"endereco\": \"av. 1\"\n    },\n    \"maria\": {\n        \"tel\": \"99229-2020\",\n        \"email\": \"maria@solyd.com.br\",\n        \"endereco\": \"av. 2\"",
+        "detail": "agenda_na_mao",
+        "documentation": {}
+    },
+    {
+        "label": "AGENDA['guilherme']['endereco']",
+        "kind": 5,
+        "importPath": "agenda_na_mao",
+        "description": "agenda_na_mao",
+        "peekOfCode": "AGENDA['guilherme']['endereco'] = \"Rua das nações\"\nAGENDA['lucas'] = {\n    \"tel\": \"98882-2189\",\n    \"email\": \"lucal@solyd.com.br\",\n    \"endereco\": \"av. josé bonifacio\",\n}\nAGENDA.pop(\"guilherme\")\nfor contato in AGENDA:\n    print(contato)\nprint(AGENDA['lucas'])",
+        "detail": "agenda_na_mao",
+        "documentation": {}
+    },
+    {
+        "label": "AGENDA['lucas']",
+        "kind": 5,
+        "importPath": "agenda_na_mao",
+        "description": "agenda_na_mao",
+        "peekOfCode": "AGENDA['lucas'] = {\n    \"tel\": \"98882-2189\",\n    \"email\": \"lucal@solyd.com.br\",\n    \"endereco\": \"av. josé bonifacio\",\n}\nAGENDA.pop(\"guilherme\")\nfor contato in AGENDA:\n    print(contato)\nprint(AGENDA['lucas'])",
+        "detail": "agenda_na_mao",
+        "documentation": {}
+    },
+    {
+        "label": "conjunto_cores",
+        "kind": 5,
+        "importPath": "conjunto",
+        "description": "conjunto",
+        "peekOfCode": "conjunto_cores = {\"vermelho\", \"azul\", \"verde\"}\nconjunto_cores.add(\"branco\")\nconjunto_cores.add(\"vermelho\")\nconjunto_cores.remove(\"branco\")\nprint(conjunto_cores)\n# LISTAS\n# TUPLAS\n# DICIONARIOS\n# CONJUNTOS",
+        "detail": "conjunto",
+        "documentation": {}
+    },
+    {
+        "label": "pessoas",
+        "kind": 5,
+        "importPath": "dicionario",
+        "description": "dicionario",
+        "peekOfCode": "pessoas = {\n    \"guilherme\": 19,\n    \"maria\": 17,\n    \"joão\": 20,\n}\nfor pessoa in pessoas:\n    print(pessoas[pessoa])",
+        "detail": "dicionario",
+        "documentation": {}
+    },
+    {
+        "label": "nome",
+        "kind": 5,
+        "importPath": "lista",
+        "description": "lista",
+        "peekOfCode": "nome = \"Guilherme\"\nidade = 19\nminha_lista = [\"azul\", \"amarelo\", \"verde\", \"vermelho\", \"roxo\", \"branco\"]    # lista de cores\nfor letra in nome:\n    print(letra)\n    print(\"olá\")\nprint(\"Sai do for\")\n# LISTAS - OK\n# TUPLAS\n# DICIONARIOS",
+        "detail": "lista",
+        "documentation": {}
+    },
+    {
+        "label": "idade",
+        "kind": 5,
+        "importPath": "lista",
+        "description": "lista",
+        "peekOfCode": "idade = 19\nminha_lista = [\"azul\", \"amarelo\", \"verde\", \"vermelho\", \"roxo\", \"branco\"]    # lista de cores\nfor letra in nome:\n    print(letra)\n    print(\"olá\")\nprint(\"Sai do for\")\n# LISTAS - OK\n# TUPLAS\n# DICIONARIOS\n# CONJUNTOS",
+        "detail": "lista",
+        "documentation": {}
+    },
+    {
+        "label": "minha_lista",
+        "kind": 5,
+        "importPath": "lista",
+        "description": "lista",
+        "peekOfCode": "minha_lista = [\"azul\", \"amarelo\", \"verde\", \"vermelho\", \"roxo\", \"branco\"]    # lista de cores\nfor letra in nome:\n    print(letra)\n    print(\"olá\")\nprint(\"Sai do for\")\n# LISTAS - OK\n# TUPLAS\n# DICIONARIOS\n# CONJUNTOS",
+        "detail": "lista",
+        "documentation": {}
+    },
+    {
+        "label": "contador",
+        "kind": 5,
+        "importPath": "loop",
+        "description": "loop",
+        "peekOfCode": "contador = 0\nwhile contador < 10:\n    print('Essa condição é verdadeira')\n    contador = contador + 1",
+        "detail": "loop",
+        "documentation": {}
+    },
+    {
+        "label": "soma",
+        "kind": 2,
+        "importPath": "soma",
+        "description": "soma",
+        "peekOfCode": "def soma(primeiro_numero, segundo_numero):\n    resultado = primeiro_numero + segundo_numero\n    print(resultado)\nsoma(1, 2)",
+        "detail": "soma",
+        "documentation": {}
+    },
+    {
+        "label": "tuplas_cores",
+        "kind": 5,
+        "importPath": "tupla",
+        "description": "tupla",
+        "peekOfCode": "tuplas_cores = (\"amarelo\", \"azul\", \"roxo\")\nfor cor in tuplas_cores:\n    print(cor)",
+        "detail": "tupla",
+        "documentation": {}
+    }
+]
